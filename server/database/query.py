@@ -1,6 +1,7 @@
-from flask_sqlalchemy import SQLAlchemy
-
-class DB:
+class Client:
+    def __init__(self, db):
+        self.client = db
+        
     def create_all(self):
         self.client.create_all()
     

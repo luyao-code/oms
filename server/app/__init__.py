@@ -1,6 +1,7 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
+from app.routes.user import get_all_users
 
 db = SQLAlchemy()
 app = Flask(__name__)
@@ -14,5 +15,9 @@ def create_app():
     # Database Migrations
     from .models import Dealer, User, Order, Product
     migrate = Migrate(app, db)
+
+    # Import routes
+    from .routes import user
+    app.register_blueprint(user.bp)
 
     return app

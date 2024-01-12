@@ -1,2 +1,2 @@
-from .init import DB
+from .query import Client
 from .seeder import Seeder

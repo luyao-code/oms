@@ -1,15 +1,22 @@
-from ..app import app, db
-from flask import make_response
+from database import Client
+from app import db
+from flask import make_response, Blueprint
 
-@app.route('/info')
-def get_info():
+bp = Blueprint('user', __name__)
+client = None
+
+def get_client():
+    global client
+    if client is None:
+        client = Client(db)
+    return client
+
+@bp.route('/users')
+def get_all_users():
     header = {
         'Access-Control-Allow-Origin': "*"
     }
-    data = {
-        'name': 'ToDo',
-        'dev': 'Yao'
-    }
+    data = client.get_all_items('users')
     response = make_response(data)
     response.headers = header
     response.status_code = 200
