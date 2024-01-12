@@ -4,7 +4,7 @@ Relationships:
 """
 from .. import db
 from sqlalchemy import Enum, ForeignKey
-from .roles import RoleType
+from .types import RoleType
 
 class User(db.Model):
     __tablename__ = 'users'

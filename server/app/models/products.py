@@ -1,5 +1,5 @@
 from .. import db
-from .categories import CategoryType
+from .types import CategoryType
 
 class Product(db.Model):
     __tablename__ = 'products'

@@ -5,8 +5,7 @@ Relationships:
 from datetime import datetime
 from sqlalchemy import Enum, ForeignKey
 from sqlalchemy.orm import relationship
-from .shippings import ShippingType
-from .status import StatusType
+from .types import ShippingType, StatusType
 from .. import db
 
 class Order(db.Model):
